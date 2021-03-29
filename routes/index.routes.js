@@ -9,6 +9,7 @@ const siniestro = require("../controllers/siniestros.controller");
 const busqueda = require("../controllers/busqueda.controller");
 const pf = require("../controllers/perfilFuncional.controller");
 const perfil = require("../controllers/perfil.controller");
+const ramo = require("../controllers/ramos.controller");
 
 //Rutas Usuarios
 router.post("/registrar", user.registrar);
@@ -18,14 +19,14 @@ router.patch("/usuarios/editar/:id", verifyToken.auth, user.editar);
 router.delete("/usuarios/eliminar/:id", verifyToken.auth, user.eliminar);
 router.post("/login", user.login);
 
-//Rutas PF
+//Rutas Perfil
 router.post("/perfil/registrar", verifyToken.auth, perfil.registrar);
 router.get("/perfil", verifyToken.auth, perfil.listar);
 router.get("/perfil/:id", verifyToken.auth, perfil.obtener);
 router.patch("/perfil/editar/:id", verifyToken.auth, perfil.actualizar);
 router.delete("/perfil/eliminar/:id", verifyToken.auth, perfil.eliminar);
 
-//Rutas Perfil
+//Rutas Pf
 router.post("/pf/registrar", verifyToken.auth, pf.registrar);
 router.get("/pf", verifyToken.auth, pf.listar);
 router.get("/pf/:id", verifyToken.auth, pf.obtener);
@@ -51,6 +52,13 @@ router.get("/siniestros", verifyToken.auth, siniestro.listar);
 router.get("/siniestros/:id", verifyToken.auth, siniestro.obtener);
 router.patch("/siniestros/editar/:id", verifyToken.auth, siniestro.editar);
 router.delete("/siniestros/eliminar/:id", verifyToken.auth, siniestro.eliminar);
+
+//Rutas Ramos
+router.post("/ramos/registrar", verifyToken.auth, ramo.registrar);
+router.get("/ramos", verifyToken.auth, ramo.listar);
+router.get("/ramos/:id", verifyToken.auth, ramo.obtener);
+router.patch("/ramos/editar/:id", verifyToken.auth, ramo.actualizar);
+router.delete("/ramos/eliminar/:id", verifyToken.auth, ramo.eliminar);
 
 //Rutas Busquedas
 router.post("/todo/:busqueda", verifyToken.auth, busqueda.getTodo);

@@ -96,7 +96,12 @@ userCTRL.eliminar = async (req, res) => {
 
 userCTRL.login = async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ email: email }); // Comprobamos si el email existe
+  const user = await User.findOne({ email: email }).populate({
+    path: "perfil",
+    populate: {
+      path: "perfilFuncional",
+    },
+  }); // Comprobamos si el email existe
   const validPassword = await user.validatePassword(password); //Comprobamos que la password coincide
 
   //Si NO se encuentra el usuario
@@ -127,9 +132,12 @@ userCTRL.obtener = async (req, res) => {
 
   if (!id) return res.status(401).send({ message: "Error en el Servidor" });
 
-  const user = await (await User.findOne({ _id: id }))
-    .populate("Perfil")
-    .populate("perfilFuncional");
+  const user = await (await User.findOne({ _id: id })).populate({
+    path: "perfil",
+    populate: {
+      path: "perfilFuncional",
+    },
+  });
 
   res.status(200).send({ user });
 };

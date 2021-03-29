@@ -6,7 +6,7 @@ const perfilFuncionalSchema = new Schema({
   nombre: String,
   estado: String,
   permiso: String,
-  addDate: { type: Date, default: Date.now },
+  addDate: Date,
 });
 
 const PerfilFuncional = mongoose.model(

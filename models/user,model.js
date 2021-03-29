@@ -11,7 +11,7 @@ const UserSchema = new Schema({
   password: String,
   estado: String,
   idioma: String,
-  addDate: { type: Date, default: Date.now },
+  addDate: Date,
   perfil: { type: Schema.ObjectId, ref: "Perfil" },
 });
 
