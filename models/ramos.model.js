@@ -4,9 +4,9 @@ const { Schema } = mongoose;
 const ramosSchema = new Schema({
   tipo: String,
   codigo: String,
-  nombre: String,
+  nombres: [{ pais: String, nombre: String }],
   compañia: String,
-  ssn: String,
+  ssn: [String],
   contable: Number,
   fechaInicio: String,
   fechaFin: String,

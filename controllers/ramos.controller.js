@@ -24,14 +24,14 @@ ramosCTRL.registrar = async (req, res) => {
   if (ramo) {
     return res.status(400).json({
       ok: false,
-      mensaje: "Este usuario ya existe",
+      mensaje: "Este Ramo ya existe",
     });
   }
 
   let nuevoRamo = new Ramo({
     tipo: data.tipo,
     codigo: data.codigo,
-    nombre: data.nombre,
+    nombres: data.nombres,
     compañia: data.compañia,
     ssn: data.ssn,
     contable: data.contable,
