@@ -11,6 +11,14 @@ const ramosSchema = new Schema({
   fechaInicio: String,
   fechaFin: String,
   motivoBaja: String,
+  approbationModality: String,
+  approbationDate: String,
+  expedientNumber: Number,
+  expedientNumberOutCompany: Number,
+  ssnExpedientNumber: Number,
+  companyName: String,
+  approval: String,
+  tramitNumber: Number,
 });
 
 const Ramo = mongoose.model("Ramo", ramosSchema);
