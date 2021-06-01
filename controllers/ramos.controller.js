@@ -38,6 +38,14 @@ ramosCTRL.registrar = async (req, res) => {
     fechaInicio: data.fechaInicio,
     fechaFin: data.fechaFin,
     motivoBaja: data.motivoBaja,
+    approbationModality: data.approbationModality,
+    approbationDate: data.approbationDate,
+    expedientNumber: data.expedientNumber,
+    expedientNumberOutCompany: data.expedientNumberOutCompany,
+    ssnExpedientNumber: data.ssnExpedientNumber,
+    companyName: data.companyName,
+    approval: data.approval,
+    tramitNumber: data.tramitNumber,
   });
 
   await nuevoRamo.save((err, result) => {

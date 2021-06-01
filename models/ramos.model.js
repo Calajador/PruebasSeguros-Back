@@ -6,7 +6,7 @@ const ramosSchema = new Schema({
   codigo: String,
   nombres: [{ pais: String, nombre: String }],
   compañia: String,
-  ssn: [String],
+  ssn: String,
   contable: Number,
   fechaInicio: String,
   fechaFin: String,
